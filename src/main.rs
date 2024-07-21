@@ -24,8 +24,8 @@ fn main() -> std::io::Result<()> {
 
     println!("patching...");
 
-    let patched_byte : &[u8] = &[0x80, 0xbf, 0x78, 0x01, 0x00, 0x00, 0x00, 0x75, 0x05, 0xe8];
-    let pattern = "80 bf 78 01 00 00 00 74 05 e8";
+    let patched_byte : &[u8] = &[0x75, 0x05, 0xE8, 0x66, 0x71, 0x58, 0x03, 0x48, 0x8D, 0x4D, 0x98, 0xE8, 0xAD];
+    let pattern = "74 05 E8 66 71 58 03 48 8D 4D 98 E8 AD";
     let get_offset = scan(&file, &pattern).unwrap();
 
     println!("0x{:#X}", get_offset[0]);

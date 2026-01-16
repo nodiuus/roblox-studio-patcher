@@ -1,6 +1,3 @@
-/*
-    id like to apologize in advance for the terrible code, this is my first time writing Rust LOL
-*/
 use std::env;
 use std::fs::File;
 use std::fs::OpenOptions;
@@ -24,8 +21,8 @@ fn main() -> std::io::Result<()> {
 
     println!("[*] patching...");
 
-    let patched_bytes : &[u8] = &[0x75, 0x05, 0xE8, 0xB2, 0x98, 0xB7, 0x03, 0x48];
-    let pattern = "74 05 E8 B2 98 B7 03 48";
+    let patched_bytes : &[u8] = &[0x75, 0x05, 0xE8, 0xA0, 0x50, 0x0A, 0x04];
+    let pattern = "74 05 E8 A0 50 0A 04";
     let get_offset = scan(&file, &pattern).unwrap();
 
     println!("{:#X}", get_offset[0]);
